@@ -27,8 +27,8 @@ fs.writeFile('image.png', buf);
 	});
 
 	var mainOptions = {
-		from: 'John Doe <johndoe@outlook.com>',
-		to: 'aoto.daiki@yandex.com',
+		from: 'DeveloperTest<akmksi211@gmail.com>',
+		to: 'sales@totalbodyexperts.com',
 		subject: 'Website Submission',
     html: '<p>My Bike</p>',
     attachments: [
