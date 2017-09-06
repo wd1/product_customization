@@ -28,8 +28,8 @@ fs.writeFile('image.png', buf);
 
 	var mainOptions = {
 		from: 'Studio Cycles Mail<custombike@studio-cycles.com>',
-    // to: 'sales@totalbodyexperts.com',
-    to: 'aoto.daiki@yandex.com',
+    to: 'sales@totalbodyexperts.com',
+    // to: 'aoto.daiki@yandex.com',
 		subject: 'Website Submission',
     html: '<p>My Bike</p>',
     attachments: [
