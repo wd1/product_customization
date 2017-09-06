@@ -55,7 +55,7 @@
 				<div id="exTab1" class="container" style="width:90%;">	
 					<ul  class="nav navbar-nav navbar-right" style="float:left!important;">
 						<li class="active">
-							<a  id="1atab" href="#1a" data-toggle="tab">FRMAECOLOR</a>
+							<a  id="1atab" href="#1a" data-toggle="tab">FRMAE COLOR</a>
 						</li>
 						<li>
 							<a id="2atab" href="#2a" data-toggle="tab">FRAME GRAPHICS</a>
@@ -88,7 +88,7 @@
 								<option value="Star Trac Studio 7">Star Trac Studio5</option>
 								<option value="Star Trac Studio 7">Star Trac Studio 7</option>
 							</select>
-							<button id="sendmailbtn" class="btn btn-default" onclick="sendmail()">Send Result</button>
+							
 						</div> 
 					</div>
 					<canvas id="myCanvas" style="width:100%;" ></canvas>
@@ -397,9 +397,9 @@
 						</div>
 					</div>
 					<div class="tab-pane tab_container" id="3a">
-						<div class="row">
+						<div class="row" >
 							<h2 style="font-weight: bold;font-family: initial">Flywheel</h2>
-							<div class="upload">
+							<div class="upload" style="height:90px;">
 								<input id="wheel-url" type="text" class="col-md-9">
 								<button id="browser-wheel-button" class="browser-button col-md-3" style="">Browse...</button>
 								<div class="col-md-12" style="margin-top:10px;">
@@ -416,6 +416,7 @@
 							<div id="but_part">
 								<div class="btn btn-primary col-md-2" onclick="go(2)">BACK</div>
 								<div class="btn btn-primary col-md-2" onclick="go(1)" style="margin-left:20px;">NEXT</div>
+								<button id="sendmailbtn" class="btn btn-default btn-primary col-md-2" onclick="sendmail()" style="margin-left:20px;">Send Result</button>
 							</div>
 						</div>
 					</div>

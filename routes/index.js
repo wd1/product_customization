@@ -21,14 +21,15 @@ fs.writeFile('image.png', buf);
 	var transporter = nodemailer.createTransport({
 		service: 'Gmail',
 		auth: {
-			user: 'akmksi211@gmail.com',
-			pass: 'djfwjfgu890'
+			user: 'custombike@studio-cycles.com',
+			pass: 'qwerty79qwerty79'
 		}
 	});
 
 	var mainOptions = {
-		from: 'DeveloperTest<akmksi211@gmail.com>',
-		to: 'sales@totalbodyexperts.com',
+		from: 'Studio Cycles Mail<custombike@studio-cycles.com>',
+    // to: 'sales@totalbodyexperts.com',
+    to: 'aoto.daiki@yandex.com',
 		subject: 'Website Submission',
     html: '<p>My Bike</p>',
     attachments: [
