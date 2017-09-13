@@ -2,7 +2,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 						'Schwinn AC Sportcycle Carbonblue':{'x':920,'y':701,'width':173,'height':188},
 						'Schwinn ACPP Carbonblue':{'x':775,'y':705,'width':187,'height':187},
 						'Schwinn IC Pro 20':{'x':760,'y':535,'width':246,'height':255},
-						'Star Trac Studio 7':{'x':578,'y':453,'width':254,'height':258},
+						'Star Trac Studio 7':{'x':679,'y':452,'width':254,'height':258},
 						'Schwinn IC Pro Cycle':{'x':891,'y':607,'width':328,'height':320},
 						'Star Trac Blade':{'x':806,'y':722,'width':334,'height':341},
 						'Star Trac NXT':{'x':815,'y':731,'width':300,'height':319},
@@ -12,7 +12,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 		var this_wheel_position = {'x':0,'y':0,'width':0, 'height':0};
 		var screenheight = Math.min(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.clientHeight,document.documentElement.scrollHeight,document.documentElement.offsetHeight);
 		document.getElementById("main_panel").style.height = (document.body.scrollHeight-270) +"px";
-		var frame_img, seat_img, mark_img, text_img,wheel_img;
+		var frame_img, seat_img, mark_img, text_img,wheel_img, wheel_img1;
 		var set_flag = true;
 		var c = document.getElementById("myCanvas");
 		var ctx = c.getContext("2d");
@@ -64,6 +64,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 			this_wheel_position.width = positions[val].width;
 			this_wheel_position.height = positions[val].height;
 			canvas.remove(wheel_img);
+			canvas.remove(wheel_img1);
 			fabric.Image.fromURL('images/'+val+'/'+val1+'.png', function(img) {
 				mockup_rate = ((canvas.width))/img.width<canvas.height/img.height?((canvas.width))/img.width:canvas.height/img.height;
 				rate11 = ((canvas.width))/img.width;
@@ -88,8 +89,12 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 					var sss1 = img.height*mockup_rate;
 					// wheel_img = img.set({ left: ((canvas.width))/2-wheel_offset_x*(((canvas.width))/2/488), top: canvas.height/2-wheel_offset_y*(canvas.height/2/309), scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:false})
 					// left: (this_wheel_position.x)*mockup_rate+mockup_img.left+100,
-					wheel_img = img.set({ left: mockup_img.width*mockup_img.scaleX-150, top: (this_wheel_position.y)*mockup_rate+mockup_img.top, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
+					var img1 = img;
+					var img1 = jQuery.extend(true, {}, img);
+					wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX: mockup_img.scaleX, scaleY: mockup_img.scaleY, angle: 0, selectable:false});
 					canvas.add(wheel_img);
+					wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-150, top: (this_wheel_position.y)*mockup_rate+mockup_img.top, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
+					canvas.add(wheel_img1);
 					canvas.renderAll();
 					// canvas.setActiveObject(wheel_img);
 				});
@@ -282,10 +287,21 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 							case 3:
 								// $("#wheel-url").val(file.name);
 								canvas.remove(wheel_img);
+								canvas.remove(wheel_img1);
+								var img1 = jQuery.extend(true, {}, img);
+
+								var wheel_x_rate = this_wheel_position.width*mockup_img.scaleX/img.width ;
+								var wheel_y_rate = this_wheel_position.height*mockup_img.scaleY/img.height;
+								console.log(wheel_x_rate);
+								console.log(mockup_img.scaleX);
 								// wheel_img = img.set({ left: ((canvas.width))/2-wheel_offset_x*(((canvas.width))/2/488), top: canvas.height/2-wheel_offset_y*(canvas.height/2/309), scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:false})
-								wheel_img = img.set({ left: this_wheel_position.x*mockup_rate, top: this_wheel_position.y*mockup_rate, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
+								wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:false});
+								wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-150, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
+								// wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
+								// wheel_img1 = img.set({ left: mockup_img.width*mockup_img.scaleX-150, top: (this_wheel_position.y)*mockup_rate+mockup_img.top, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
 								canvas.add(wheel_img);
-								canvas.setActiveObject(wheel_img);
+								canvas.add(wheel_img1);
+								// canvas.setActiveObject(wheel_img1);
 								break;
 						}
 						set_flag = true;
