@@ -2,7 +2,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 						'Schwinn AC Sportcycle Carbonblue':{'x':920,'y':701,'width':173,'height':188},
 						'Schwinn ACPP Carbonblue':{'x':775,'y':705,'width':187,'height':187},
 						'Schwinn IC Pro 20':{'x':760,'y':535,'width':246,'height':255},
-						'Star Trac Studio 7':{'x':579,'y':452,'width':254,'height':258},
+						'Star Trac Studio 7':{'x':578,'y':453,'width':254,'height':258},
 						'Schwinn IC Pro Cycle':{'x':891,'y':607,'width':328,'height':320},
 						'Star Trac Blade':{'x':806,'y':722,'width':334,'height':341},
 						'Star Trac NXT':{'x':815,'y':731,'width':300,'height':319},
@@ -29,14 +29,14 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 		bike_load();
 
 		// fabric.Image.fromURL('images/stock-bike.jpg', function(img) {
-		// 	mockup_rate = canvas.width/img.width;
-		// 	mockup_img = img.set({ left: canvas.width/2-img.width*mockup_rate/2, top: canvas.height/2-img.height*mockup_rate/2, angle: 0, scaleX:mockup_rate, scaleY:mockup_rate, style:'opacity: 1;', selectable: false })
+		// 	mockup_rate = ((canvas.width))/img.width;
+		// 	mockup_img = img.set({ left: ((canvas.width))/2-img.width*mockup_rate/2, top: canvas.height/2-img.height*mockup_rate/2, angle: 0, scaleX:mockup_rate, scaleY:mockup_rate, style:'opacity: 1;', selectable: false })
 		// 	canvas.add(mockup_img);
 		// 	canvas.renderAll();
 		// 	fabric.Image.fromURL('images/Frame.png', function(img) {
 		// 		var sss=img.width*mockup_rate;
 		// 		var sss1 = img.height*mockup_rate;
-		// 		frame_img = img.set({ left: canvas.width/2-sss/2, top: canvas.height/2-sss1/2, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
+		// 		frame_img = img.set({ left: ((canvas.width))/2-sss/2, top: canvas.height/2-sss1/2, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
 		// 		// console.log(frame_img.left+","+frame_img.top);
 		// 		canvas.add(frame_img);
 		// 		canvas.renderAll();
@@ -44,7 +44,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 		// 	// fabric.Image.fromURL('images/wheel.png', function(img) {
 		// 	// 	var sss=img.width*mockup_rate;
 		// 	// 	var sss1 = img.height*mockup_rate;
-		// 	// 	wheel_img = img.set({ left: canvas.width/2-sss/2, top: canvas.height/2-sss1/2, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
+		// 	// 	wheel_img = img.set({ left: ((canvas.width))/2-sss/2, top: canvas.height/2-sss1/2, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
 		// 	// 	// console.log(frame_img.left+","+frame_img.top);
 		// 	// 	canvas.add(wheel_img);
 		// 	// 	canvas.renderAll();
@@ -65,17 +65,19 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 			this_wheel_position.height = positions[val].height;
 			canvas.remove(wheel_img);
 			fabric.Image.fromURL('images/'+val+'/'+val1+'.png', function(img) {
-				mockup_rate = canvas.width/img.width<canvas.height/img.height?canvas.width/img.width:canvas.height/img.height;
-				console.log(canvas.width/img.width);
+				mockup_rate = ((canvas.width))/img.width<canvas.height/img.height?((canvas.width))/img.width:canvas.height/img.height;
+				rate11 = ((canvas.width))/img.width;
+				rate12 = canvas.height/img.height;
+				console.log(((canvas.width))/img.width);
 				console.log(canvas.height/img.height);
 				console.log(mockup_rate);
-				mockup_img = img.set({ left: canvas.width/2-img.width*mockup_rate/2, top: canvas.height/2-img.height*mockup_rate/2, angle: 0, scaleX:mockup_rate, scaleY:mockup_rate, style:'opacity: 1;', selectable: false })
+				mockup_img = img.set({ left: ((canvas.width))/2-img.width*mockup_rate/2, top: canvas.height/2-img.height*mockup_rate/2, angle: 0, scaleX:mockup_rate, scaleY:mockup_rate, style:'opacity: 1;', selectable: false })
 				canvas.add(mockup_img);
 				canvas.renderAll();
 				fabric.Image.fromURL('images/'+val+'/'+val1+'-Frame.png', function(img) {
 					sss=img.width*mockup_rate;
 					sss1 = img.height*mockup_rate;
-					frame_img = img.set({ left: canvas.width/2-sss/2, top: canvas.height/2-sss1/2, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
+					frame_img = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
 					// console.log(frame_img.left+","+frame_img.top);
 					canvas.add(frame_img);
 					canvas.renderAll();
@@ -84,8 +86,9 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 				fabric.Image.fromURL('images/'+val+'/'+val1+'-Flywheel.png', function(img) {
 					var sss=img.width*mockup_rate;
 					var sss1 = img.height*mockup_rate;
-					// wheel_img = img.set({ left: canvas.width/2-wheel_offset_x*(canvas.width/2/488), top: canvas.height/2-wheel_offset_y*(canvas.height/2/309), scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:false})
-					wheel_img = img.set({ left: this_wheel_position.x*mockup_rate, top: this_wheel_position.y*mockup_rate, scaleX:mockup_img.scaleX, width:this_wheel_position.width*mockup_rate, height:this_wheel_position.height*mockup_rate, scaleY:mockup_img.scaleY, angle: 0, selectable:false});
+					// wheel_img = img.set({ left: ((canvas.width))/2-wheel_offset_x*(((canvas.width))/2/488), top: canvas.height/2-wheel_offset_y*(canvas.height/2/309), scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:false})
+					// left: (this_wheel_position.x)*mockup_rate+mockup_img.left+100,
+					wheel_img = img.set({ left: mockup_img.width*mockup_img.scaleX-150, top: (this_wheel_position.y)*mockup_rate+mockup_img.top, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
 					canvas.add(wheel_img);
 					canvas.renderAll();
 					// canvas.setActiveObject(wheel_img);
@@ -258,28 +261,28 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 							case 0:
 								// $("#seat-url").val(file.name);
 								canvas.remove(seat_img);
-								seat_img = img.set({ left: canvas.width/2-seat_offset_x*(canvas.width/2/488), top: canvas.height/2-seat_offset_y*(canvas.height/2/309), scaleX:20/img.width, scaleY:20/img.width, angle: 0})
+								seat_img = img.set({ left: ((canvas.width))/2-seat_offset_x*(((canvas.width))/2/488), top: canvas.height/2-seat_offset_y*(canvas.height/2/309), scaleX:20/img.width, scaleY:20/img.width, angle: 0})
 								canvas.add(seat_img);
 								canvas.setActiveObject(seat_img);
 								break;
 							case 1:
 								// $("#mark-url").val(file.name);
 								canvas.remove(mark_img);
-								mark_img = img.set({ left:canvas.width/2-mark_offset_x*(canvas.width/2/488), top: canvas.height/2-mark_offset_y*(canvas.height/2/309), scaleX:20/img.width, scaleY:20/img.width, angle: 0})
+								mark_img = img.set({ left:((canvas.width))/2-mark_offset_x*(((canvas.width))/2/488), top: canvas.height/2-mark_offset_y*(canvas.height/2/309), scaleX:20/img.width, scaleY:20/img.width, angle: 0})
 								canvas.add(mark_img);
 								canvas.setActiveObject(mark_img);
 								break;
 							case 2:
 								// $("#text-url").val(file.name);
 								canvas.remove(text_img);
-								text_img = img.set({ left: canvas.width/2-text_offset_x*(canvas.width/2/488), top: canvas.height/2-text_offset_y*(canvas.height/2/309), scaleX:37/img.width, scaleY:37/img.width, angle: 0})
+								text_img = img.set({ left: ((canvas.width))/2-text_offset_x*(((canvas.width))/2/488), top: canvas.height/2-text_offset_y*(canvas.height/2/309), scaleX:37/img.width, scaleY:37/img.width, angle: 0})
 								canvas.add(text_img);
 								canvas.setActiveObject(text_img);
 								break;
 							case 3:
 								// $("#wheel-url").val(file.name);
 								canvas.remove(wheel_img);
-								// wheel_img = img.set({ left: canvas.width/2-wheel_offset_x*(canvas.width/2/488), top: canvas.height/2-wheel_offset_y*(canvas.height/2/309), scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:false})
+								// wheel_img = img.set({ left: ((canvas.width))/2-wheel_offset_x*(((canvas.width))/2/488), top: canvas.height/2-wheel_offset_y*(canvas.height/2/309), scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:false})
 								wheel_img = img.set({ left: this_wheel_position.x*mockup_rate, top: this_wheel_position.y*mockup_rate, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
 								canvas.add(wheel_img);
 								canvas.setActiveObject(wheel_img);
@@ -295,7 +298,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 			$("#"+id+"atab").click();
 		}
 		$( "#seat-url" ).keydown(function() {
-			var left = canvas.width/2-seat_offset_x*(canvas.width/2/488);
+			var left = ((canvas.width))/2-seat_offset_x*(((canvas.width))/2/488);
 			var top = canvas.height/2-seat_offset_y*(canvas.height/2/309);
 			var font_size = 34;
 			var angle = 0;
@@ -358,7 +361,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 		});
 
 		$( "#mark-url" ).keydown(function() {
-			var left = canvas.width/2-mark_offset_x*(canvas.width/2/488);
+			var left = ((canvas.width))/2-mark_offset_x*(((canvas.width))/2/488);
 			var top = canvas.height/2-mark_offset_y*(canvas.height/2/309);
 			var font_size = 34;
 			var angle = 0;
@@ -421,7 +424,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 		});
 
 		$( "#text-url" ).keydown(function() {
-			var left = canvas.width/2-text_offset_x*(canvas.width/2/488);
+			var left = ((canvas.width))/2-text_offset_x*(((canvas.width))/2/488);
 			var top = canvas.height/2-text_offset_y*(canvas.height/2/309);
 			var font_size = 34;
 			var angle = 0;
