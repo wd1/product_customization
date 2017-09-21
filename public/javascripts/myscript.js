@@ -13,7 +13,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 		var this_wheel_position = {'x':0,'y':0,'width':0, 'height':0};
 		var screenheight = Math.min(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.clientHeight,document.documentElement.scrollHeight,document.documentElement.offsetHeight);
 		document.getElementById("main_panel").style.height = (document.body.scrollHeight-270) +"px";
-		var frame_img, seat_img, mark_img, text_img,wheel_img, wheel_img1, chain_guard;
+		var frame_img, seat_img, mark_img, text_img,wheel_img, wheel_img1, chain_guard, mockup_img;
 		var set_flag = true, hide_wheelflag = true;
 		var c = document.getElementById("myCanvas");
 		var ctx = c.getContext("2d");
@@ -66,6 +66,12 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 			this_wheel_position.height = positions[val].height;
 			canvas.remove(wheel_img);
 			canvas.remove(wheel_img1);
+			canvas.remove(frame_img);
+			canvas.remove(text_img);
+			canvas.remove(seat_img);
+			canvas.remove(mark_img);
+			canvas.remove(mockup_img);
+			$("#bike_title").text(val);
 			fabric.Image.fromURL('images/'+val+'/'+val1+'.png', function(img) {
 				mockup_rate = ((canvas.width))/img.width<canvas.height/img.height?((canvas.width))/img.width:canvas.height/img.height;
 				rate11 = ((canvas.width))/img.width;
@@ -318,6 +324,9 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 								canvas.add(wheel_img1);
 								canvas.bringToFront(frame_img);
 								canvas.bringToFront(chain_guard);
+								canvas.bringToFront(text_img);
+								canvas.bringToFront(seat_img);
+								canvas.bringToFront(mark_img);
 								// canvas.setActiveObject(wheel_img1);
 								break;
 						}
