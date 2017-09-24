@@ -13,7 +13,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 		var this_wheel_position = {'x':0,'y':0,'width':0, 'height':0};
 		var screenheight = Math.min(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.clientHeight,document.documentElement.scrollHeight,document.documentElement.offsetHeight);
 		document.getElementById("main_panel").style.height = (document.body.scrollHeight-270) +"px";
-		var frame_img, seat_img, mark_img, text_img,wheel_img, wheel_img1, chain_guard, mockup_img;
+		var frame_img, seat_img, mark_img, text_img,wheel_img, wheel_img1, chain_guard, mockup_img, cover_img;
 		var set_flag = true, hide_wheelflag = true;
 		var c = document.getElementById("myCanvas");
 		var ctx = c.getContext("2d");
@@ -104,7 +104,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 					var img1 = jQuery.extend(true, {}, img);
 					wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:false});
 					canvas.add(wheel_img);
-					wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-150, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
+					wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-250, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top-150, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
 					if(!hide_wheelflag)
 						canvas.add(wheel_img1);
 					canvas.renderAll();
@@ -117,6 +117,14 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 					chain_guard = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
 					// console.log(frame_img.left+","+frame_img.top);
 					canvas.add(chain_guard);
+					canvas.renderAll();
+				});
+				fabric.Image.fromURL('images/'+val+'/'+val1+'-Cover.png', function(img) {
+					sss=img.width*mockup_rate;
+					sss1 = img.height*mockup_rate;
+					cover_img = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
+					// console.log(frame_img.left+","+frame_img.top);
+					canvas.add(cover_img);
 					canvas.renderAll();
 				});
 			});
@@ -316,8 +324,8 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 								console.log(wheel_x_rate);
 								console.log(mockup_img.scaleX);
 								// wheel_img = img.set({ left: ((canvas.width))/2-wheel_offset_x*(((canvas.width))/2/488), top: canvas.height/2-wheel_offset_y*(canvas.height/2/309), scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:false})
-								wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:false});
-								wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-150, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
+								wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
+								wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-250, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top-150, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
 								// wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
 								// wheel_img1 = img.set({ left: mockup_img.width*mockup_img.scaleX-150, top: (this_wheel_position.y)*mockup_rate+mockup_img.top, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
 								canvas.add(wheel_img);
@@ -327,6 +335,8 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 								canvas.bringToFront(text_img);
 								canvas.bringToFront(seat_img);
 								canvas.bringToFront(mark_img);
+								if(cover_img)
+									canvas.bringToFront(cover_img);
 								// canvas.setActiveObject(wheel_img1);
 								break;
 						}
