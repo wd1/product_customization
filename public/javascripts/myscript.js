@@ -3,7 +3,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 						'Schwinn ACPP Carbonblue':{'x':775,'y':705,'width':187,'height':187},
 						'Schwinn ACPP':{'x':775,'y':705,'width':187,'height':187},
 						'Schwinn IC Pro 20':{'x':760,'y':535,'width':246,'height':255},
-						'Star Trac Studio 7':{'x':659,'y':435,'width':275,'height':274},
+						'Star Trac Studio 7':{'x':667,'y':452,'width':258,'height':248},
 						'Schwinn IC Pro Cycle':{'x':891,'y':607,'width':328,'height':320},
 						'Star Trac Blade':{'x':806,'y':722,'width':334,'height':341},
 						'Star Trac NXT':{'x':815,'y':731,'width':300,'height':319},
@@ -104,7 +104,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 					var img1 = jQuery.extend(true, {}, img);
 					wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:false});
 					canvas.add(wheel_img);
-					wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-250, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top-150, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
+					wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-220, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top-180, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
 					if(!hide_wheelflag)
 						canvas.add(wheel_img1);
 					canvas.renderAll();
