@@ -104,7 +104,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 					var img1 = jQuery.extend(true, {}, img);
 					wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:false});
 					canvas.add(wheel_img);
-					wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-220, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top-180, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
+					wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-180, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top-180, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
 					if(!hide_wheelflag)
 						canvas.add(wheel_img1);
 					canvas.renderAll();
