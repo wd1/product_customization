@@ -3,7 +3,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 						'Schwinn ACPP Carbonblue':{'x':775,'y':705,'width':187,'height':187},
 						'Schwinn ACPP':{'x':775,'y':705,'width':187,'height':187},
 						'Schwinn IC Pro 20':{'x':760,'y':535,'width':246,'height':255},
-						'Star Trac Studio 7':{'x':679,'y':452,'width':254,'height':258},
+						'Star Trac Studio 7':{'x':659,'y':435,'width':275,'height':274},
 						'Schwinn IC Pro Cycle':{'x':891,'y':607,'width':328,'height':320},
 						'Star Trac Blade':{'x':806,'y':722,'width':334,'height':341},
 						'Star Trac NXT':{'x':815,'y':731,'width':300,'height':319},
