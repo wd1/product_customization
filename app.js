@@ -9,7 +9,6 @@ var nodemailer = require('nodemailer');
 var index = require('./routes/index');
 var about = require('./routes/about');
 var contact = require('./routes/contact');
-var request = require('request')
 
 var app = express();
 
@@ -55,3 +54,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+module.exports = app;
