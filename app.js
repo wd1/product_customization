@@ -1,14 +1,14 @@
 var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
+// var path = require('path');
+// var favicon = require('serve-favicon');
+// var logger = require('morgan');
+// var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var nodemailer = require('nodemailer');
+// var nodemailer = require('nodemailer');
 
-var index = require('./routes/index');
-var about = require('./routes/about');
-var contact = require('./routes/contact');
+// var index = require('./routes/index');
+// var about = require('./routes/about');
+// var contact = require('./routes/contact');
 var request = require('request')
 
 var app = express();
@@ -29,8 +29,8 @@ var app = express();
 // app.use(logger('dev'));
 // // app.use(bodyParser.json());
 // // app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json({limit: '5mb'}));
-app.use(bodyParser.urlencoded({limit: '5mb'}));
+// app.use(bodyParser.json({limit: '5mb'}));
+// app.use(bodyParser.urlencoded({limit: '5mb'}));
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
@@ -60,7 +60,8 @@ app.use(bodyParser.urlencoded({limit: '5mb'}));
 
 
 app.set('port', (process.env.PORT || 5000))
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.get('/', function(req, res) {
   res.send("Hi I am a chatbot")
 })
