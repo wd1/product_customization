@@ -61,9 +61,6 @@ app.use(function(err, req, res, next) {
 
 app.set('port', (process.env.PORT || 5000))
 
-app.get('/', function(req,res) {
-  res.send("Hi I am a chatbot")
-})
 app.get('/webhook/', function(req,res) {
   if(req.query['hub.verify_token'] === 'blondiebytes') {
     res.send(req.query['hub.challenge'])
