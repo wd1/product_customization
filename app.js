@@ -59,7 +59,7 @@ app.use(function(err, req, res, next) {
 //for facebook chatbot
 
 
-app.set('port', (process.env.PORT || 5000))
+// app.set('port', (process.env.PORT || 5000))
 
 app.get('/webhook/', function(req,res) {
   if(req.query['hub.verify_token'] === 'blondiebytes') {
