@@ -29,8 +29,8 @@ var app = express();
 // app.use(logger('dev'));
 // // app.use(bodyParser.json());
 // // app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json({limit: '5mb'}));
-// app.use(bodyParser.urlencoded({limit: '5mb'}));
+app.use(bodyParser.json({limit: '5mb'}));
+app.use(bodyParser.urlencoded({limit: '5mb'}));
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
@@ -60,6 +60,10 @@ var app = express();
 
 
 app.set('port', (process.env.PORT || 5000))
+
+app.get('/', function(req, res) {
+  res.send("Hi I am a chatbot")
+})
 
 app.get('/webhook/', function(req,res) {
   if(req.query['hub.verify_token'] === 'blondiebytes') {
