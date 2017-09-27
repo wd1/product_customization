@@ -9,6 +9,7 @@ var nodemailer = require('nodemailer');
 var index = require('./routes/index');
 var about = require('./routes/about');
 var contact = require('./routes/contact');
+var request = require('request')
 
 var app = express();
 
@@ -57,10 +58,13 @@ app.use(function(err, req, res, next) {
 
 //for facebook chatbot
 
-var request = require('request')
+
 app.set('port', (process.env.PORT || 5000))
 
 app.get('/', function(req,res) {
+  res.send("Hi I am a chatbot")
+})
+app.get('/webhook/', function(req,res) {
   if(req.query['hub.verify_token'] === 'blondiebytes') {
     res.send(req.query['hub.challenge'])
   }
