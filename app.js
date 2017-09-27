@@ -68,7 +68,7 @@ app.set('port', (process.env.PORT || 5000))
 //   res.send("Wrong token")
 // })
 
-app.listen(app.get('port'), function() {
-  console.log("Running: port")
-})
+// app.listen(app.get('port'), function() {
+//   console.log("Running: port")
+// })
 module.exports = app;
