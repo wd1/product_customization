@@ -104,8 +104,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 					var img1 = jQuery.extend(true, {}, img);
 					wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:false});
 					canvas.add(wheel_img);
-					console.log(canvas.width / 5);
-					wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-canvas.width / 5, top: mockup_img.top+canvas.height/4, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
+					wheel_img1 = img1.set({ left: canvas.width - this_wheel_position.width*mockup_img.scaleX-20, top: mockup_img.top+mockup_img.height*mockup_img.scaleY/4, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
 					if(!hide_wheelflag)
 						canvas.add(wheel_img1);
 					canvas.renderAll();
@@ -322,11 +321,9 @@ var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':1
 
 								var wheel_x_rate = this_wheel_position.width*mockup_img.scaleX/img.width ;
 								var wheel_y_rate = this_wheel_position.height*mockup_img.scaleY/img.height;
-								console.log(wheel_x_rate);
-								console.log(mockup_img.scaleX);
 								// wheel_img = img.set({ left: ((canvas.width))/2-wheel_offset_x*(((canvas.width))/2/488), top: canvas.height/2-wheel_offset_y*(canvas.height/2/309), scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:false})
-								wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
-								wheel_img1 = img1.set({ left: mockup_img.width*mockup_img.scaleX+mockup_img.left-220, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top-150, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
+								wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:false});
+								wheel_img1 = img1.set({ left: canvas.width - this_wheel_position.width*mockup_img.scaleX-20, top: mockup_img.top+mockup_img.height*mockup_img.scaleY/4, scaleX:wheel_x_rate, scaleY:wheel_y_rate, angle: 0, selectable:true});
 								// wheel_img = img.set({ left: (this_wheel_position.x)*mockup_img.scaleX+mockup_img.left, top: (this_wheel_position.y)*mockup_img.scaleY+mockup_img.top, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
 								// wheel_img1 = img.set({ left: mockup_img.width*mockup_img.scaleX-150, top: (this_wheel_position.y)*mockup_rate+mockup_img.top, scaleX:mockup_img.scaleX, scaleY:mockup_img.scaleY, angle: 0, selectable:true});
 								canvas.add(wheel_img);
