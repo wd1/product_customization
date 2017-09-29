@@ -1,14 +1,14 @@
-var positions = {'Schwinn AC Sportcycle':{'x':786,'y':599,'width':146,'height':159},
-						'Schwinn AC Sportcycle Carbonblue':{'x':920,'y':701,'width':173,'height':188},
+var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':158},
+						'Schwinn AC Sportcycle Carbonblue':{'x':900,'y':700,'width':192,'height':192},
 						'Schwinn ACPP Carbonblue':{'x':775,'y':705,'width':187,'height':187},
 						'Schwinn ACPP':{'x':775,'y':705,'width':187,'height':187},
 						'Schwinn IC Pro 20':{'x':760,'y':535,'width':246,'height':255},
 						'Star Trac Studio 7':{'x':667,'y':452,'width':258,'height':248},
-						'Schwinn IC Pro Cycle':{'x':891,'y':607,'width':328,'height':320},
-						'Star Trac Blade':{'x':806,'y':722,'width':334,'height':341},
-						'Star Trac NXT':{'x':815,'y':731,'width':300,'height':319},
-						'Star Trac Studio3':{'x':842,'y':653,'width':294,'height':299},
-						'Star Trac Studio5':{'x':823,'y':723,'width':308,'height':315},
+						'Schwinn IC Pro Cycle':{'x':891,'y':605,'width':328,'height':320},
+						'Star Trac Blade':{'x':793,'y':715,'width':344,'height':344},
+						'Star Trac NXT':{'x':795,'y':731,'width':319,'height':319},
+						'Star Trac Studio3':{'x':834,'y':654,'width':302,'height':301},
+						'Star Trac Studio5':{'x':806,'y':712,'width':326,'height':326},
 					};
 		var this_wheel_position = {'x':0,'y':0,'width':0, 'height':0};
 		var screenheight = Math.min(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.clientHeight,document.documentElement.scrollHeight,document.documentElement.offsetHeight);
