@@ -9,7 +9,7 @@ var nodemailer = require('nodemailer');
 var index = require('./routes/index');
 var about = require('./routes/about');
 var contact = require('./routes/contact');
-
+var test = require('./routes/test');
 var app = express();
 
 var cons = require('consolidate');
@@ -34,6 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/test', test);
 app.use('/about', about);
 app.use('/contact', contact);
 

@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>Bike Customization</title>
+	<link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+	<script src="javascripts/modernizr.js"></script>
+	<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+	<style>
+		.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
+			background:black!important;
+			color: #42b3e5;
+		}
+    </style>
+ 
+	<!-- <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+			emailjs.init("user_7etoNbs8iRNCDSfeJDQSt");
+		})();
+	</script>
+	<script src="https://smtpjs.com/smtp.js"></script> -->
+	
+</head>
+<body style="">
+	
+	<!-- ====================================================
+	header section -->
+
+    <iframe id="id_description_iframe" src = "http://localhost" style="width:100%;height: 900px;"></iframe>
+    <script>
+        alert("SDF");
+        document.getElementById('id_description_iframe').onload = function() {
+            var iframe = document.getElementById('id_description_iframe');
+    
+            var win = iframe.contentWindow; // reference to iframe's window
+            // reference to document in iframe
+            var doc = iframe.contentDocument? iframe.contentDocument: iframe.contentWindow.document;
+            // reference to form named 'demoForm' in iframe
+            var form = doc.getElementById('main_panel');
+            console.log(doc);
+        }
+	</script>
+	<!-- script tags
+	============================================================= -->
+    
+</body>
+</html>

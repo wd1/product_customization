@@ -7,16 +7,12 @@ sys = require('sys');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home' });
+  res.render('test', { title: 'Home' });
 });
 
 router.post('/send', function(req, res, next) {
-	var img = req.body.img;
-	var special1 = req.body.special1;
-	var special2 = req.body.special2;
-	var special3 = req.body.special3;
-
-  console.log(special1);
+  var img = req.body.img;
+  console.log(img);
 // strip off the data: url prefix to get just the base64-encoded bytes
 var data = img.replace(/^data:image\/\w+;base64,/, "");
 var buf = new Buffer(data, 'base64');
@@ -35,7 +31,7 @@ fs.writeFile('image.png', buf);
     to: 'sales@totalbodyexperts.com',
     // to: 'aoto.daiki@yandex.com',
 		subject: 'Website Submission',
-    html: '<p>My Bike</p><h4>Color Instruction:'+special1+'</h4>'+'<h4>Frame Instruction:'+special2+'</h4>'+'<h4>Flywheel Instruction:'+special3+'</h4>',
+    html: '<p>My Bike</p>',
     attachments: [
         {   
             path: req.body.img
@@ -46,11 +42,11 @@ fs.writeFile('image.png', buf);
 	transporter.sendMail(mainOptions, function(error, info) {
 		if(error) {
 			console.log(error);
-			// res.redirect('/');
+			res.redirect('/');
 		}
 		else {
 			console.log('Message Sent: '+info.response);
-			// res.redirect('/');
+			res.redirect('/');
 		}
 	});
 });

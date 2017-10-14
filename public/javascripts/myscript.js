@@ -574,7 +574,10 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 			
 			$.post('/send',
 			{
-				img : c.toDataURL("image/png")
+				img : c.toDataURL("image/png"),
+				special1: $("#special1").val(),
+				special2: $("#special2").val(),
+				special3: $("#special3").val()
 			}, function(data) {
 				console.log(data);
 			});
