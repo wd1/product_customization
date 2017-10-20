@@ -349,7 +349,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 		function go(id){
 			$("#"+id+"atab").click();
 		}
-		$( "#seat-url" ).keydown(function() {
+		$( "#seat-url" ).keyup(function() {
 			var left = ((canvas.width))/2-seat_offset_x*(((canvas.width))/2/488);
 			var top = canvas.height/2-seat_offset_y*(canvas.height/2/309);
 			var font_size = 34;
@@ -412,7 +412,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 			$("#image64").val(canvas.toDataURL());
 		});
 
-		$( "#mark-url" ).keydown(function() {
+		$( "#mark-url" ).keyup(function() {
 			var left = ((canvas.width))/2-mark_offset_x*(((canvas.width))/2/488);
 			var top = canvas.height/2-mark_offset_y*(canvas.height/2/309);
 			var font_size = 34;
@@ -475,7 +475,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 			$("#image64").val(canvas.toDataURL());
 		});
 
-		$( "#text-url" ).keydown(function() {
+		$( "#text-url" ).keyup(function() {
 			var left = ((canvas.width))/2-text_offset_x*(((canvas.width))/2/488);
 			var top = canvas.height/2-text_offset_y*(canvas.height/2/309);
 			var font_size = 34;

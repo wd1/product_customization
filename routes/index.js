@@ -39,7 +39,7 @@ fs.writeFile('image.png', buf);
     // to: 'aoto.daiki@yandex.com',
 		subject: 'Website Submission',
 		html: '<p>My Bike</p><h4>Color Instruction:'+special1+'</h4>'+'<h4>Frame Instruction:'+special2+'</h4>'+'<h4>Flywheel Instruction:'+special3+'</h4>'+
-		'<h4>Username:'+username+'</h4>'+'<h4>User Email:'+usermail+'</h4>'+'<h4>Phone Number:'+phonenumber+'</h4>',
+		'<h4>Contact Name:'+username+'</h4>'+'<h4>User Email:'+usermail+'</h4>'+'<h4>Phone Number:'+phonenumber+'</h4>',
     attachments: [
         {   
             path: req.body.img
