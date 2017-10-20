@@ -27,7 +27,46 @@
 	
 	<!-- ====================================================
 	header section -->
+	<button type="button" id="do_modal_crop" class="btn btn-primary" style="display:none;" data-target="#modal_crop" data-toggle="modal">
+      Launch the demo
+    </button>
 
+    <!-- Modal -->
+    <div class="modal fade" id="modal_crop" role="dialog" aria-labelledby="modalLabel" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="font-size:14px;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top:-11px;"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container" style="height:300px;">
+              <div class="card-body p-4">
+				<h4 class="text-muted" style="padding-left:20px;" >Please input your contact information</h4>
+				<div class="input-group mb-3" style="padding: 0px 10px 20px 10px;">
+					<span class="input-group-addon"><i class="icon-user"></i></span>
+					<input id="username" class="form-control" placeholder="Username" type="text">
+				</div>
+
+				<div class="input-group mb-3" style="padding: 0px 10px 20px 10px;">
+					<span class="input-group-addon">@</span>
+					<input id="useremail" class="form-control" placeholder="Email" type="text">
+				</div>
+
+				<div class="input-group mb-3" style="padding: 0px 10px 20px 10px;">
+					<span class="input-group-addon"><i class="icon-lock"></i></span>
+					<input id="phonenumber" class="form-control" placeholder="Phone Number" type="text">
+				</div>
+
+				
+				<button type="button" class="btn btn-block btn-success" onclick="sendmail_click()">Send</button>
+				
+			</div>
+				</div>
+			</div>
+			
+        </div>
+      </div>
+    </div>
 	<header class="">
 		<div class=""> <!-- class = containter -->
 			<div class="container" style="width:90%;">

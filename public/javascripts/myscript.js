@@ -82,14 +82,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 				mockup_img = img.set({ left: ((canvas.width))/2-img.width*mockup_rate/2, top: canvas.height/2-img.height*mockup_rate/2, angle: 0, scaleX:mockup_rate, scaleY:mockup_rate, style:'opacity: 1;', selectable: false })
 				canvas.add(mockup_img);
 				canvas.renderAll();
-				fabric.Image.fromURL('images/'+val+'/'+val1+'-Frame.png', function(img) {
-					sss=img.width*mockup_rate;
-					sss1 = img.height*mockup_rate;
-					frame_img = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
-					// console.log(frame_img.left+","+frame_img.top);
-					canvas.add(frame_img);
-					canvas.renderAll();
-				});
+				
 
 				fabric.Image.fromURL('images/'+val+'/'+val1+'-Flywheel.png', function(img) {
 					var sss=img.width*mockup_rate;
@@ -111,20 +104,29 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 					// canvas.setActiveObject(wheel_img);
 				});
 
-				fabric.Image.fromURL('images/'+val+'/'+val1+'-Chain-Guard.png', function(img) {
-					sss=img.width*mockup_rate;
-					sss1 = img.height*mockup_rate;
-					chain_guard = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
-					// console.log(frame_img.left+","+frame_img.top);
-					canvas.add(chain_guard);
-					canvas.renderAll();
-				});
+				
 				fabric.Image.fromURL('images/'+val+'/'+val1+'-Cover.png', function(img) {
 					sss=img.width*mockup_rate;
 					sss1 = img.height*mockup_rate;
 					cover_img = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
 					// console.log(frame_img.left+","+frame_img.top);
 					canvas.add(cover_img);
+					canvas.renderAll();
+				});
+				fabric.Image.fromURL('images/'+val+'/'+val1+'-Frame.png', function(img) {
+					sss=img.width*mockup_rate;
+					sss1 = img.height*mockup_rate;
+					frame_img = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
+					// console.log(frame_img.left+","+frame_img.top);
+					canvas.add(frame_img);
+					canvas.renderAll();
+				});
+				fabric.Image.fromURL('images/'+val+'/'+val1+'-Chain-Guard.png', function(img) {
+					sss=img.width*mockup_rate;
+					sss1 = img.height*mockup_rate;
+					chain_guard = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
+					// console.log(frame_img.left+","+frame_img.top);
+					canvas.add(chain_guard);
 					canvas.renderAll();
 				});
 			});
@@ -571,16 +573,8 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 			// $("#image64").val(canvas.toDataURL());
 			// imgss.src = content;
 			// document.getElementById("main_panel").appendChild(imgss);
+			$("#do_modal_crop").click();
 			
-			$.post('/send',
-			{
-				img : c.toDataURL("image/png"),
-				special1: $("#special1").val(),
-				special2: $("#special2").val(),
-				special3: $("#special3").val()
-			}, function(data) {
-				console.log(data);
-			});
 			// emailjs.send("gmail","mytemplate1",{content: content})
 			// .then(
 			// 	function(response) {
@@ -591,6 +585,25 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 			// 	}
 			// );
 
+		}
+		function sendmail_click() {
+			if($("#username").val() != "" && $("#usermail").val() != "" && $("#phonenumber").val() != "") {
+				$("#modal_crop").modal('hide');
+				$.post('/send',
+				{
+					img : c.toDataURL("image/png"),
+					special1: $("#special1").val(),
+					special2: $("#special2").val(),
+					special3: $("#special3").val(),
+					username: $("#username").val(),
+					usermail: $("#useremail").val(),
+					phonenumber: $("#phonenumber").val()
+				}, function(data) {
+					console.log(data);
+				});
+			} else {
+				alert("Please all of the information");
+			}
 		}
 		function hide_rightwheel() {
 			hide_wheelflag = true;
