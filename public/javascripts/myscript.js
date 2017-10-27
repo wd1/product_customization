@@ -254,7 +254,9 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 			console.log(frame_img);
 			//16, new f.BlendColor({color:'red', mode:'overlay'})
 			var color = this.style.backgroundColor;
-			frame_img.filters.push(new f.BlendColor({color:color, mode:'tint'}));
+			frame_img.filters=[];
+			frame_img.filters.push(new f.BlendColor({color:color, mode:'multiply'}));
+			console.log(frame_img.filters);
 			frame_img.applyFilters();
 			canvas.renderAll();
 			$("#image64").val(canvas.toDataURL());
