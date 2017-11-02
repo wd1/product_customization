@@ -13,7 +13,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 		var this_wheel_position = {'x':0,'y':0,'width':0, 'height':0};
 		var screenheight = Math.min(document.body.scrollHeight,document.body.offsetHeight,document.documentElement.clientHeight,document.documentElement.scrollHeight,document.documentElement.offsetHeight);
 		document.getElementById("main_panel").style.height = (document.body.scrollHeight-270) +"px";
-		var frame_img, seat_img, mark_img, text_img,wheel_img, wheel_img1, chain_guard, mockup_img, cover_img;
+		var frame_img, frame_img1, seat_img, mark_img, text_img,wheel_img, wheel_img1, chain_guard, mockup_img, cover_img;
 		var set_flag = true, hide_wheelflag = true;
 		var c = document.getElementById("myCanvas");
 		var ctx = c.getContext("2d");
@@ -118,7 +118,15 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 					sss1 = img.height*mockup_rate;
 					frame_img = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
 					// console.log(frame_img.left+","+frame_img.top);
-					canvas.add(frame_img);
+					// canvas.add(frame_img);
+					// canvas.renderAll();
+				});
+				fabric.Image.fromURL('images/'+val+'/'+val1+'-Frame1.png', function(img) {
+					sss=img.width*mockup_rate;
+					sss1 = img.height*mockup_rate;
+					frame_img1 = img.set({ left: mockup_img.left, top: mockup_img.top, scaleX:mockup_rate, scaleY:mockup_rate, angle: 0, selectable: false})
+					// console.log(frame_img.left+","+frame_img.top);
+					canvas.add(frame_img1);
 					canvas.renderAll();
 				});
 				fabric.Image.fromURL('images/'+val+'/'+val1+'-Chain-Guard.png', function(img) {
@@ -258,6 +266,8 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 			frame_img.filters.push(new f.BlendColor({color:color, mode:'multiply'}));
 			console.log(frame_img.filters);
 			frame_img.applyFilters();
+			canvas.remove(frame_img1);
+			canvas.add(frame_img);
 			canvas.renderAll();
 			$("#image64").val(canvas.toDataURL());
 		});
