@@ -71,6 +71,7 @@ var positions = {'Schwinn AC Sportcycle':{'x':772,'y':598,'width':158,'height':1
 			canvas.remove(seat_img);
 			canvas.remove(mark_img);
 			canvas.remove(mockup_img);
+			canvas.remove(frame_img1);
 			$("#bike_title").text(val);
 			fabric.Image.fromURL('images/'+val+'/'+val1+'.png', function(img) {
 				mockup_rate = ((canvas.width))/img.width<canvas.height/img.height?((canvas.width))/img.width:canvas.height/img.height;
